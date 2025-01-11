@@ -1,11 +1,32 @@
-{% extends 'base.html' %}
-
-{% block title %}
-Авторизация | 🍕 Пиццерия 🍕
-{% endblock %}
-
-{% block body %}
-
-<p>Hi!</p>
-
-{% endblock %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <title>Профиль</title>
+</head>
+<body>
+{% if login and data|list|length > 0 %}
+<div class="profile-message">Ваш профиль</div>
+<div class="profile-container">
+    {% for nickname, email, avatar in data %}
+    <div class="profile-container-avatar-container">
+        <img src="{{ url_for('static', filename='avatars/' + avatar) }}" class="profile-container-avatar">
+        <div class="profile-container-avatar-overlay"><div class="profile-container-avatar-label">Загрузить аватар</div></div>
+        <input type="file" name="avatar" accept="image/*" class="profile-container-avatar-change">
+    </div>
+    <div class="profile-container-details">
+        <div class="profile-container-nickname">{{ nickname }}</div>
+        <div class="profile-container-email">{{ email }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="profile-error-message">Что-бы зайти в профиль вы должны быть авторизованы.</div>
+{% endif %}
+<script src="{{ url_for('static', filename='javascript/profile.js') }}"></script>
+</body>
+</html>

@@ -16,14 +16,17 @@
     <ul>
         <li><a href=""><img src="{{ url_for('static', filename='images/icon_1.png') }}" alt="image_1">Главная</a></li>
         <li><a href=""><img src="{{ url_for('static', filename='images/icon_1.png') }}" alt="image_1">Услуги</a></li>
-        <li><a href=""><img src="{{ url_for('static', filename='images/icon_1.png') }}" alt="image_1">О нас</a></li>
+        <li><a href="/comments"><img src="{{ url_for('static', filename='images/icon_1.png') }}" alt="image_1">Отзывы</a></li>
     </ul>
     <img src="{{ url_for('static', filename='images/icon_2.png') }}" alt="Логотип" class="logo_right">
+
+    <button class="sort-min"><img src="{{ url_for('static', filename='images/sort-min.png') }}" alt="Сортирование с минимального"></button>
+    <button class="sort-max"><img src="{{ url_for('static', filename='images/sort-max.png') }}" alt="Сортирование с максимального"></button>
     {% if login %}
         <a href="auth/profile" class="button_profile"><img src="{{ url_for('static', filename='images/icon_6.png') }}" alt="image_1">Личный кабинет</a>
     {% else %}
         <a href="auth/login" class="button_login"><img src="{{ url_for('static', filename='images/icon_7.png') }}" alt="image_1">Войти</a>
-        <a href="auth/register" class="button_register"><img src="{{ url_for('static', filename='images/icon_4.png') }}" alt="image_1">Зарегистрироваться</a>
+        <a href="auth/register" class="button_register"><img src="{{ url_for('static', filename='images/icon_7.png') }}" alt="image_1">Зарегистрироваться</a>
     {% endif %}
     <img src="{{ url_for('static', filename='images/icon_5.png') }}" alt="Логотип" class="logo_right_2">
     <button class="cart-button"><img src="{{ url_for('static', filename='images/cart_icon.png') }}" alt="Корзина"></button>
@@ -154,5 +157,6 @@
 
 <script>const imageBasePath = "{{ url_for('static', filename='images/') }}";</script>
 <script src="{{ url_for('static', filename='javascript/menu.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
 {% endblock %}
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='comments.css') }}">
+    <title>😀 Отзывы 😀</title>
+</head>
+<body>
+{% if login and self_data|list|length > 0 %}
+<div class="btn-add-review">Добавить отзыв</div>
+<div class="fon-menu-add-review"></div>
+<div class="menu-add-review">
+    {% for self_avatar, self_nickname in self_data %}
+    <form id="AddReviewForm" method="post" action="/comments" novalidate>
+        <input type="hidden" name="starsSelected" value="0">
+        <input type="hidden" name="avatar_path" id="avatar-path">
+        <img src="{{ url_for('static', filename='avatars/' + self_avatar) }}" class="menu-add-review-avatar">
+        <div class="menu-add-review-nickname">{{ self_nickname }}</div>
+        <img src="{{ url_for('static', filename='images/star.png') }}" class="star" id="star-1">
+        <img src="{{ url_for('static', filename='images/star.png') }}" class="star" id="star-2">
+        <img src="{{ url_for('static', filename='images/star.png') }}" class="star" id="star-3">
+        <img src="{{ url_for('static', filename='images/star.png') }}" class="star" id="star-4">
+        <img src="{{ url_for('static', filename='images/star.png') }}" class="star" id="star-5">
+        <span class="close-menu-add-review">&times;</span>
+        {{ form.hidden_tag() }}
+        {{ form.description(class_="form-control") }}
+        {{ form.submit() }}
+    </form>
+    {% endfor %}
+</div>
+{% else %}
+<h1 class="text-2">Вы должны войти в аккаунт что-бы оставить отзыв</h1>
+{% endif %}
+{% if data|list|length > 0 %}
+<div class="reviews-container">
+    <h1 class="reviews-text-1">Отзывы</h1>
+    {% for nickname, grade, description, avatar in data %}
+    <div class="review-container">
+        <img src="{{ url_for('static', filename='avatars/' + avatar) }}" class="review-container-avatar">
+        <div class="review-container-nickname">{{ nickname }}</div>
+        <div class="review-container-stars">
+            {% for i in range(1, 6) %}
+                {% if i <= grade %}
+                    <img src="{{ url_for('static', filename='images/star-full.png') }}" class="review-container-star">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/star.png') }}" class="review-container-star">
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if not description %}
+        <div class="review-container-description">Описание отсутствует.</div>
+        {% else %}
+        <div class="review-container-description">{{ description }}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h1 class="text-1">Отзывы пока отсутствуют</h1>
+{% endif %}
+<script src="{{ url_for('static', filename='javascript/comments.js') }}"></script>
+</body>
+</html>

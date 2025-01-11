@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #3a3a3a;
+    background-size: 400% 400%;
+    color: #e5dcdc;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+::selection {
+    background-color: #c79f00;
+    color: #121111;
+}
+
+.profile-message {
+    width: fit-content;
+    font-family: Marker Felt, fantasy;
+    font-size: 3.5rem;
+    color: #d4d0cf;
+    margin: 4rem auto 0 auto;
+    user-select: none;
+}
+
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto 0 auto;
+    background-color: #594947;
+    border-radius: 20px;
+    width: 30rem;
+    height: 8rem;
+}
+
+.profile-container-avatar {
+    width: 6rem;
+    height: 6rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.profile-container-avatar-container {
+    margin: 1rem 0.55rem 0rem 1rem;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 6rem;
+    height: 6rem;
+}
+
+.profile-container-avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.profile-container-avatar-label {
+    margin: 0 auto 0 auto;
+    width: fit-content;
+    color: #e0e0e0;
+    font-size: 1rem;
+    text-align: center;
+    user-select: none;
+    font-family: Andale Mono, monospace;
+}
+
+.profile-container-avatar-container:hover .profile-container-avatar-overlay {
+    opacity: 1;
+}
+
+.profile-container-avatar-change {
+    display: none;
+}
+
+.profile-container-details {
+    display: block;
+    height: 20rem;
+}
+
+.profile-container-nickname {
+    font-size: 2rem;
+    margin-top: 1.75rem;
+    color: #d4d0cf;
+}
+
+.profile-container-email {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #8c8988;
+}
+
+.profile-error-message {
+    width: fit-content;
+    font-family: Marker Felt, fantasy;
+    font-size: 3.5rem;
+    color: #d4d0cf;
+    margin: 4rem auto 0 auto;
+    user-select: none;
+}

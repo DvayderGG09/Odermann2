@@ -3,6 +3,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 /* Стили для навигационного меню */
 nav {
     padding: 10px 20px; /* Отступы внутри меню */
@@ -114,6 +118,7 @@ nav a:hover {
     margin-right: 12px;
     width: 315px;
     height: 315px;
+    display: none;
 }
 
 .pizza-post:nth-child(-n+4) {
@@ -244,6 +249,7 @@ nav a:hover {
     transition: background-color 0.3s; /* Плавный переход цвета */
     margin-top: -3px; /* Убираем отступы вокруг кнопок */
     display: block; /* Устанавливаем блочный элемент */
+    border: 0;
 }
 
 .toggle-button {
@@ -294,4 +300,61 @@ nav a:hover {
 /* Убираем стиль кнопки при фокусе */
 .cart-button:focus {
     outline: none; /* Убираем обводку при фокусе */
+}
+
+.sort-min {
+    position: absolute;
+    padding: 0;
+    background: none;
+    border: none;
+    margin: 0px;
+    margin-left: 960px;
+    margin-top: 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+}
+
+.sort-max {
+    position: absolute;
+    padding: 0;
+    background: none;
+    border: none;
+    margin: 0px;
+    margin-left: 905px;
+    margin-top: 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+}
+
+.sort-min:hover {
+    background-color: #a82727;
+    transform: scale(1.06);
+}
+
+.sort-max:hover {
+    transform: scale(1.06);
+}
+
+.sort-min img {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.sort-max img {
+    width: 45px;
+    height: 45px;
+    display: block;
 }

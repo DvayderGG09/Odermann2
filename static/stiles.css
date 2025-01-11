@@ -21,7 +21,7 @@ body {
     margin-bottom: 50px; /* Отступ снизу */
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[name="nickname"], input[name="login"], input[name="email"], input[name="password"], input[name="password_2"] {
     width: 94%;
     padding: 10px;
     margin: 10px 0;
@@ -32,16 +32,16 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+input[name="nickname"]:focus, input[name="login"]:focus, input[name="email"]:focus, input[name="password"]:focus, input[name="password_2"]:focus {
     border-color: #636363;
     outline: none;
 }
 
-input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder {
+input[name="nickname"]::placeholder, input[name="login"]::placeholder, input[name="email"]::placeholder, input[name="password"]::placeholder, input[name="password_2"]::placeholder {
     color: #888;
 }
 
-button {
+button[name="submitBtn"] {
     width: 100%;
     padding: 10px;
     margin: 15px 0;
@@ -53,7 +53,7 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+button[name="submitBtn"]:hover {
     background-color: #45a049;
 }
 
@@ -97,7 +97,7 @@ button:hover {
     border-radius: 10px;
     width: 80%;
     max-width: 400px; /* Максимальная ширина модального окна */
-    height: 50px;
+    height: 70px;
     overflow-y: auto; /* Добавляем прокрутку, если контент превышает высоту */
 }
 
